@@ -1,0 +1,12 @@
+name: Ansible Lint
+description: Run Ansible Lint
+inputs:
+  path:
+    required: false
+    default: "."
+runs:
+  using: docker
+  image: 'Dockerfile'
+  entrypoint: /usr/src/bin/python -m yamllint
+  args:
+    - ${{ inputs.path }}
