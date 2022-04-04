@@ -1,17 +1,19 @@
 ---
 name: release
 
-on:
+on: 
   push:
     branches:
       - master
+
 jobs:
-  move-tags:
-    name: Move tags
+  release-on-push:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Check out src from Git
-        uses: actions/checkout@v3
-      - uses: kellyselden/move-semver-tags-action@v3
+      - id: release
+        uses: rymndhng/release-on-push-action@master
         with:
-          copy-annotations: true
+          bump_version_scheme: minor
+          tag_prefix: v
