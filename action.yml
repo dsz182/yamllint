@@ -7,6 +7,6 @@ inputs:
 runs:
   using: docker
   image: 'Dockerfile'
-  entrypoint: /usr/src/bin/python -m yamllint
+  entrypoint: python 
   args:
-    - ${{ inputs.path }}
+    - -m yamllint ${{ inputs.path }}
