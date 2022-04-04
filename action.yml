@@ -7,6 +7,6 @@ inputs:
 runs:
   using: docker
   image: 'Dockerfile'
-  entrypoint: yamllint 
+  entrypoint: yamllint -c /config/.yamllint
   args:
     - ${{ inputs.path }}
