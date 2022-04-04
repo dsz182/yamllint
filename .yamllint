@@ -24,5 +24,7 @@ rules:
     level: error
   key-duplicates: enable
   line-length: disable
-  new-lines: disable
+  new-lines:
+    type: unix
+  new-line-at-end-of-file: disable
   truthy: disable
